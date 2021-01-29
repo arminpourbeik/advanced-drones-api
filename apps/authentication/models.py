@@ -1,10 +1,24 @@
+import os
+
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFill
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.utils.translation import gettext_lazy as _
+from django.utils.timezone import now as timezone_now
 
 from rest_framework_simplejwt.tokens import RefreshToken
+
+
+def upload_to(instance, filename):
+    now = timezone_now()
+    base, extention = os.path.splitext(filename)
+    extention = extention.lower()
+
+    return f"avatars/{now:%Y/%m/%d}/{instance.pk}{extention}"
 
 
 class CustomUserManager(BaseUserManager):
@@ -62,6 +76,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    avatar = models.ImageField(_("Avatar"), upload_to=upload_to, default="user.png")
+    avatar_thumbnail = ImageSpecField(
+        source="avatar",
+        processors=[ResizeToFill(728, 250)],
+        format="PNG",
+    )
 
     objects = CustomUserManager()
 
