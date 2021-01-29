@@ -59,7 +59,7 @@ class CustomUserManager(BaseUserManager):
         return user
 
 
-class CustomUser(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     """
     Database model for users in the system
     """
@@ -71,7 +71,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     last_name = models.CharField(_("Last Name"), max_length=255, null=True, blank=True)
     bio = models.TextField(_("Bio"), max_length=500, blank=True, null=True)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
