@@ -3,14 +3,14 @@ import os
 from imagekit.models import ImageSpecField
 from pilkit.processors import ResizeToFill
 
+from rest_framework_simplejwt.tokens import RefreshToken
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from django.utils.timezone import now as timezone_now
-
-from rest_framework_simplejwt.tokens import RefreshToken
 
 
 def upload_to(instance, filename):

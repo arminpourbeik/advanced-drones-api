@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+
+admin.site.register(models.DroneCategory)
+admin.site.register(models.Drone)
+admin.site.register(models.Pilot)
+admin.site.register(models.Competition)

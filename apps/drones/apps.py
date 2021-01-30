@@ -1,5 +1,7 @@
 from django.apps import AppConfig
+from django.utils.translation import gettext_lazy as _
 
 
 class DronesConfig(AppConfig):
-    name = 'drones'
+    name = "apps.drones"
+    verbose_name = _("Drones")
