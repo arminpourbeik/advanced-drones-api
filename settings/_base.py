@@ -32,10 +32,12 @@ INSTALLED_APPS = [
     "django_filters",
     "rest_framework_simplejwt.token_blacklist",
     "imagekit",
+    "crispy_forms",
     # Local apps
     "apps.core",
     "apps.authentication",
     "apps.drones",
+    "apps.api",
 ]
 
 MIDDLEWARE = [
