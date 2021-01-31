@@ -11,6 +11,7 @@ from .serializers import (
     CompetitionSerializer,
 )
 from .custompermissions import IsCurrentUserOwnerOrReadOnly
+from .filters import CompetitionFilter
 
 
 class DroneCategoryListView(generics.ListCreateAPIView):
@@ -67,6 +68,7 @@ class CompetitionListView(generics.ListCreateAPIView):
     queryset = Competition.objects.all()
     serializer_class = PilotCompetitionSerializer
     ordering_fields = ("distance_in_feet", "distance_achievement_date")
+    filter_class = CompetitionFilter
 
 
 class CompetitionDetailView(generics.RetrieveUpdateDestroyAPIView):
