@@ -1,6 +1,7 @@
 from rest_framework import generics, permissions
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+from rest_framework.throttling import ScopedRateThrottle
 
 from apps.drones.models import Competition, Drone, DroneCategory, Pilot
 from .serializers import (
@@ -30,7 +31,7 @@ class DroneCategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
 class DroneListView(generics.ListCreateAPIView):
     serializer_class = DroneSerializer
     queryset = Drone.objects.all()
-    # permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     filterset_fields = (
         "name",
         "manufacturing_date",
@@ -38,6 +39,8 @@ class DroneListView(generics.ListCreateAPIView):
     )
     search_fields = ("name",)
     ordering_fields = ("name", "manufacturing_date")
+    throttle_classes = (ScopedRateThrottle,)
+    throttle_scope = "drones"
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -50,18 +53,27 @@ class DroneDetailView(generics.RetrieveUpdateDestroyAPIView):
         permissions.IsAuthenticatedOrReadOnly,
         IsCurrentUserOwnerOrReadOnly,
     )
+    throttle_classes = (ScopedRateThrottle,)
+    throttle_scope = "drones"
 
 
 class PilotListView(generics.ListCreateAPIView):
     queryset = Pilot.objects.all()
     serializer_class = PilotSerializer
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
+    filterset_fields = ("name", "gender", "races_count")
+    ordering_fields = ("name", "races_count")
+    search_fields = ("^name",)
+    throttle_classes = (ScopedRateThrottle,)
+    throttle_scope = "pilots"
 
 
 class PilotDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Pilot.objects.all()
     serializer_class = PilotSerializer
-    # permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated,)
+    throttle_classes = (ScopedRateThrottle,)
+    throttle_scope = "pilots"
 
 
 class CompetitionListView(generics.ListCreateAPIView):
