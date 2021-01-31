@@ -13,8 +13,15 @@ from apps.core.models import CreationModificationDateBase
 
 
 class DroneCategory(CreationModificationDateBase):
-    uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=255, unique=True)
+    uuid = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+    )
+    name = models.CharField(
+        max_length=255,
+        unique=True,
+    )
 
     class Meta:
         ordering = ("name",)
