@@ -1,0 +1,149 @@
+[
+{
+  "model": "drones.dronecategory",
+  "pk": "3fa14e52-2999-42e9-a7d1-431bedbdf6c3",
+  "fields": {
+    "created_at": "2021-01-30T19:20:12.582Z",
+    "updated_at": "2021-01-30T19:20:12.582Z",
+    "name": "IR-3"
+  }
+},
+{
+  "model": "drones.dronecategory",
+  "pk": "46cd8e85-0ac4-43a7-a87b-ee84a02839b7",
+  "fields": {
+    "created_at": "2021-01-30T08:08:23.772Z",
+    "updated_at": "2021-01-30T08:08:23.772Z",
+    "name": "IR-6"
+  }
+},
+{
+  "model": "drones.dronecategory",
+  "pk": "c28a875f-f205-4316-8ab0-96d44d46da0e",
+  "fields": {
+    "created_at": "2021-01-31T09:25:45.760Z",
+    "updated_at": "2021-01-31T09:25:45.760Z",
+    "name": "IR-7"
+  }
+},
+{
+  "model": "drones.dronecategory",
+  "pk": "e8851a3e-b8c0-4291-b986-2ab1f3b4b5f7",
+  "fields": {
+    "created_at": "2021-01-30T19:20:08.115Z",
+    "updated_at": "2021-01-30T19:20:08.115Z",
+    "name": "IR-2"
+  }
+},
+{
+  "model": "drones.dronecategory",
+  "pk": "ead7024c-790f-4563-a2ae-9e671465c764",
+  "fields": {
+    "created_at": "2021-01-30T19:20:03.841Z",
+    "updated_at": "2021-01-30T19:20:03.841Z",
+    "name": "IR-1"
+  }
+},
+{
+  "model": "drones.drone",
+  "pk": "048a25ff-1e78-4a1a-b23d-9559282d20d5",
+  "fields": {
+    "created_at": "2021-01-31T14:48:16.393Z",
+    "updated_at": "2021-01-31T14:48:16.393Z",
+    "name": "Jill Johnson",
+    "picture": "drone.png",
+    "category": "e8851a3e-b8c0-4291-b986-2ab1f3b4b5f7",
+    "has_it_competed": true,
+    "owner": 1,
+    "manufacturing_date": "2021-01-31T18:18:00Z"
+  }
+},
+{
+  "model": "drones.drone",
+  "pk": "8446bb1f-a812-402b-9f7a-076cdfda3a69",
+  "fields": {
+    "created_at": "2021-01-31T08:32:12.697Z",
+    "updated_at": "2021-01-31T08:32:12.697Z",
+    "name": "Hexacopter",
+    "picture": "drone.png",
+    "category": "ead7024c-790f-4563-a2ae-9e671465c764",
+    "has_it_competed": true,
+    "owner": 1,
+    "manufacturing_date": "2021-01-31T08:32:09Z"
+  }
+},
+{
+  "model": "drones.drone",
+  "pk": "a85384a7-dee0-44a2-9c44-bd8e283f83cb",
+  "fields": {
+    "created_at": "2021-01-30T10:19:14.482Z",
+    "updated_at": "2021-01-30T10:19:14.482Z",
+    "name": "Octocopter",
+    "picture": "drones/Octocopter.jpg",
+    "category": "46cd8e85-0ac4-43a7-a87b-ee84a02839b7",
+    "has_it_competed": true,
+    "owner": 1,
+    "manufacturing_date": "2021-01-30T18:41:02.416Z"
+  }
+},
+{
+  "model": "drones.pilot",
+  "pk": "56a06708-670b-4f22-afab-272a1604569d",
+  "fields": {
+    "created_at": "2021-01-30T08:07:59.625Z",
+    "updated_at": "2021-01-30T08:07:59.625Z",
+    "name": "Sam Smith",
+    "picture": "drones/Sam_Smith.jpg",
+    "gender": "M",
+    "races_count": 2
+  }
+},
+{
+  "model": "drones.pilot",
+  "pk": "a13b1fa6-f4fa-461b-b25f-06f0626c22c3",
+  "fields": {
+    "created_at": "2021-01-31T14:48:54.381Z",
+    "updated_at": "2021-01-31T14:48:54.381Z",
+    "name": "Lary King",
+    "picture": "drone.png",
+    "gender": "M",
+    "races_count": 56
+  }
+},
+{
+  "model": "drones.competition",
+  "pk": "2f197630-ff00-417f-ad31-ad4441a25658",
+  "fields": {
+    "created_at": "2021-01-31T09:18:15.468Z",
+    "updated_at": "2021-01-31T09:18:15.468Z",
+    "pilot": "56a06708-670b-4f22-afab-272a1604569d",
+    "drone": "a85384a7-dee0-44a2-9c44-bd8e283f83cb",
+    "distance_in_feet": 200,
+    "distance_achievement_date": "2021-01-31T12:48:00Z"
+  }
+},
+{
+  "model": "drones.competition",
+  "pk": "69a4c3b2-3959-4c9c-8a66-7a5f805f4315",
+  "fields": {
+    "created_at": "2021-01-31T08:33:31.578Z",
+    "updated_at": "2021-01-31T08:33:31.578Z",
+    "pilot": "56a06708-670b-4f22-afab-272a1604569d",
+    "drone": "a85384a7-dee0-44a2-9c44-bd8e283f83cb",
+    "distance_in_feet": 26,
+    "distance_achievement_date": "2021-01-31T08:32:31Z"
+  }
+},
+{
+  "model": "drones.competition",
+  "pk": "f1f28f50-9076-4b07-a9d4-33536152bfe3",
+  "fields": {
+    "created_at": "2021-01-31T08:04:40.173Z",
+    "updated_at": "2021-01-31T08:04:40.173Z",
+    "pilot": "56a06708-670b-4f22-afab-272a1604569d",
+    "drone": "a85384a7-dee0-44a2-9c44-bd8e283f83cb",
+    "distance_in_feet": 20,
+    "distance_achievement_date": "2021-01-31T08:04:38Z"
+  }
+}
+]
