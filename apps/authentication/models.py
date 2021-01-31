@@ -64,19 +64,42 @@ class User(AbstractBaseUser, PermissionsMixin):
     Database model for users in the system
     """
 
-    email = models.EmailField(_("Email"), max_length=255, unique=True, db_index=True)
-    username = models.CharField(_("Username"), max_length=255, unique=True)
+    email = models.EmailField(
+        _("Email"),
+        max_length=255,
+        unique=True,
+        db_index=True,
+    )
+    username = models.CharField(
+        _("Username"),
+        max_length=255,
+        unique=True,
+    )
     first_name = models.CharField(
         _("First Name"), max_length=255, null=True, blank=True
     )
-    last_name = models.CharField(_("Last Name"), max_length=255, null=True, blank=True)
-    bio = models.TextField(_("Bio"), max_length=500, blank=True, null=True)
+    last_name = models.CharField(
+        _("Last Name"),
+        max_length=255,
+        null=True,
+        blank=True,
+    )
+    bio = models.TextField(
+        _("Bio"),
+        max_length=500,
+        blank=True,
+        null=True,
+    )
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    avatar = models.ImageField(_("Avatar"), upload_to=upload_to, default="user.png")
+    avatar = models.ImageField(
+        _("Avatar"),
+        upload_to=upload_to,
+        default="user.png",
+    )
     avatar_thumbnail = ImageSpecField(
         source="avatar",
         processors=[ResizeToFill(728, 250)],

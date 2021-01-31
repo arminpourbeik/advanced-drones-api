@@ -9,7 +9,6 @@ from .serializers import (
     DroneCategorySerializer,
     PilotCompetitionSerializer,
     PilotSerializer,
-    CompetitionSerializer,
 )
 from .custompermissions import IsCurrentUserOwnerOrReadOnly
 from .filters import CompetitionFilter
