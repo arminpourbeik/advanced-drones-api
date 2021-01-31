@@ -139,7 +139,7 @@ REST_FRAMEWORK = {
         "rest_framework.filters.SearchFilter",
     ),
     # "DEFAULT_RENDERER_CLASSES": [
-    #     "utils.renderers.CustomJSONRenderer",
+    #     # "utils.renderers.CustomJSONRenderer",
     #     "rest_framework.renderers.BrowsableAPIRenderer",
     # ],
 }
