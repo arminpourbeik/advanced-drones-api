@@ -58,6 +58,7 @@ class Drone(CreationModificationDateBase):
         related_name="drones",
         on_delete=models.CASCADE,
     )
+    manufacturing_date = models.DateTimeField()
 
     class Meta:
         ordering = ("name",)
@@ -120,7 +121,7 @@ class Competition(CreationModificationDateBase):
         related_name="competitions",
         on_delete=models.CASCADE,
     )
-    drone = models.OneToOneField(
+    drone = models.ForeignKey(
         to=Drone,
         related_name="drone",
         on_delete=models.CASCADE,
