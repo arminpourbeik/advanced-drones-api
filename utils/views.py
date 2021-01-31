@@ -2,7 +2,7 @@ from django.http import JsonResponse
 
 
 def error_404(request, exception):
-    message = "The endpoint does not found"
+    message = "The endpoint does not exists"
 
     response = JsonResponse(data={"message": message, "statusCode": 404})
     response.status_code = 404

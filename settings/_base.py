@@ -15,7 +15,11 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DJANGO_DEBUG", cast=bool)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "localhost:8000",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -122,6 +126,16 @@ AUTH_USER_MODEL = "authentication.User"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+        }
+    }
+}
+
 STATIC_URL = "/static/"
 STATIC_ROOT = str(BASE_DIR.joinpath("static"))
 MEDIA_ROOT = str(BASE_DIR.joinpath("uploads"))
@@ -133,6 +147,7 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ),
+    "NONE_FIELD_ERRORS_KEY": "error",
     "DEFAULT_PAGINATION_CLASS": "apps.api.custompagination.LimitOffsetPaginationWithUpperBound",
     "PAGE_SIZE": 4,
     "DEFAULT_FILTER_BACKENDS": (
@@ -157,6 +172,7 @@ REST_FRAMEWORK = {
     #     "rest_framework.renderers.BrowsableAPIRenderer",
     # ],
 }
+
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
