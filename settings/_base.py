@@ -150,6 +150,7 @@ REST_FRAMEWORK = {
         "drones": "200/hour",
         "pilots": "150/hour",
     },
+    "EXCEPTION_HANDLER": "utils.exception_handler.custom_exception_handler",
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.NamespaceVersioning",
     # "DEFAULT_RENDERER_CLASSES": [
     #     # "utils.renderers.CustomJSONRenderer",
